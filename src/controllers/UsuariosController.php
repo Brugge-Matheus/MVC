@@ -31,4 +31,12 @@ class UsuariosController extends Controller {
       $this->redirect('/novo');
    }
 
+   public function edit() {
+
+   }
+
+   public function delete() {
+      
+   }
+
 }
