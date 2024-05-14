@@ -20,7 +20,8 @@
 
         <td>
             <a href="<?=$base?>/usuario/<?=$usuario['id']?>/editar">Editar</a>
-            <a href="<?=$base?>/usuario/<?=$usuario['id']?>/deletar">Excluir</a>
+            <a href="<?=$base?>/usuario/<?=$usuario['id']?>/deletar"
+                onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
         </td>
     </tr>
 </table>

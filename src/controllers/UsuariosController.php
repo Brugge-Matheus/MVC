@@ -31,12 +31,35 @@ class UsuariosController extends Controller {
       $this->redirect('/novo');
    }
 
-   public function edit() {
+   public function edit($param) {
+      $usuarios = Usuario::select()
+      ->find($param['id']);
 
+      $this->render('edit', array(
+         'usuarios' => $usuarios
+      ));
    }
 
-   public function delete() {
-      
+   public function editAction($param) {
+      $name = filter_input(INPUT_POST, 'name');
+      $email = filter_input(INPUT_POST, 'email');
+
+      if($name && $email) {
+         Usuario::update()
+         ->set('nome', $name)
+         ->set('email', $email)
+         ->where('id', $param['id'])
+         ->execute();
+
+         $this->redirect('/');
+      }
+
+      $this->redirect("/usuarios/" .$param['id']. "/editar");
+   }
+
+   public function delete($param) {
+      echo "Deletando: " .$param['id'];
+
    }
 
 }
