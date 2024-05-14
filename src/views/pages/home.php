@@ -9,21 +9,23 @@
         <th>E-MAIL</th>
         <th>AÇÕES</th>
     </tr>
+    <?php foreach($usuarios as $usuario):?>
     <tr>
-        <?php foreach($usuarios as $usuario):?>
 
         <td><?=$usuario['id']?></td>
         <td><?=$usuario['nome']?></td>
         <td><?=$usuario['email']?></td>
 
-        <?php endforeach?>
 
         <td>
-            <a href="<?=$base?>/usuario/<?=$usuario['id']?>/editar">Editar</a>
+            <a href="<?=$base?>/usuario/<?=$usuario['id']?>/editar"><img src="<?=$base?>/assets/images/edit.png"
+                    alt="edit"></a>
             <a href="<?=$base?>/usuario/<?=$usuario['id']?>/deletar"
-                onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+                onclick="return confirm('Tem certeza que deseja excluir?')"><img
+                    src="<?=$base?>/assets/images/trash.png" alt="delete"></a>
         </td>
     </tr>
+    <?php endforeach?>
 </table>
 
 <?php $render('footer') ?>

@@ -58,7 +58,11 @@ class UsuariosController extends Controller {
    }
 
    public function delete($param) {
-      echo "Deletando: " .$param['id'];
+      Usuario::delete()
+      ->where('id', $param['id'])
+      ->execute();
+
+      $this->redirect('/');
 
    }
 
